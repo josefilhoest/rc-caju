@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>rc caju</title>
+</head>
+
+<body>
+    <div class="cabecalho">
+        <img src="./imagens/rc caju.png" alt="RC Caju Logo" width="300" height="300">
+        <h1>RC Caju.com</h1>
+        <img id="caminhao" src="./imagens/Sem Título-2.png" alt="imagem caminhao" width="200" height="200">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div>
+            <!-- botão whatsapp permanece no final da página como ícone fixo -->
+        </div>
+    </nav>
+
+    <!-- Seções com descrições solicitadas -->
+    <main>
+        <section id="home" class="secao">
+            <h2>Home</h2>
+            <p class="descricao-text">Bem-vindo à RC Caju — aqui você encontra os melhores produtos e serviços relacionados ao caju. Trabalhamos com qualidade, entrega rápida e atendimento personalizado.</p>
+        </section>
+
+        <section id="sobre" class="secao">
+            <h2>Sobre Nós</h2>
+            <p class="descricao-text">A RC Caju é uma empresa familiar dedicada ao cultivo e comercialização de cajus selecionados. Nossa missão é levar produtos frescos e sustentáveis, apoiando produtores locais e práticas responsáveis.</p>
+        </section>
+
+        <footer>
+            <p>© 2025 RC Caju. Todos os direitos reservados.</p>
+        </footer>
+
+    <!-- Script para abrir WhatsApp Web / App com número e texto pré-definidos -->
+    <script>
+        (function () {
+            const btn = document.getElementById('whatsapp');
+            if (!btn) return;
+
+            btn.addEventListener('click', function () {
+                const phone = btn.dataset.phone && btn.dataset.phone.trim();
+                const text = btn.dataset.text || '';
+
+                if (!phone || !/^\d{8,15}$/.test(phone)) {
+                    alert('Número de WhatsApp inválido. Configure o atributo data-phone no botão com o número em formato internacional (ex: 5511999999999).');
+                    return;
+                }
+
+                const encodedText = encodeURIComponent(text);
+                // Tenta abrir no app (para dispositivos móveis) usando wa.me, caso contrário WhatsApp Web
+                const waLink = `https://wa.me/${phone}?text=${encodedText}`;
+                window.open(waLink, '_blank');
+            });
+        })();
+    </script>
+    <script>
+        // Animação de entrada + pulso para o botão WhatsApp
+        (function () {
+            const btn = document.getElementById('whatsapp');
+            if (!btn) return;
+
+            // aplica classe de entrada imediatamente após o carregamento
+            window.addEventListener('load', function () {
+                btn.classList.add('whatsapp-enter');
+
+                // após a animação de entrada, inicia alguns ciclos de pulso
+                setTimeout(() => {
+                    btn.classList.add('whatsapp-pulse');
+
+                    // remove a classe de pulso após terminar (3 ciclos de animação)
+                    const totalPulseDuration = 1400 * 3; // ms
+                    setTimeout(() => btn.classList.remove('whatsapp-pulse'), totalPulseDuration + 100);
+                }, 800);
+            });
+        })();
+    </script>
+</body>
+
+
+</html>
