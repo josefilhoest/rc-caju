@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>rc caju</title>
+    
 </head>
 
 <body>
@@ -21,7 +22,7 @@
             <li><a href="#contato">Contato</a></li>
         </ul>
         <div>
-            <!-- botão whatsapp permanece no final da página como ícone fixo -->
+            <!-- botão whatsapp permanece como ícone fixo (elemento está no final do body) -->
         </div>
     </nav>
 
@@ -36,10 +37,19 @@
             <h2>Sobre Nós</h2>
             <p class="descricao-text">A RC Caju é uma empresa familiar dedicada ao cultivo e comercialização de cajus selecionados. Nossa missão é levar produtos frescos e sustentáveis, apoiando produtores locais e práticas responsáveis.</p>
         </section>
+    </main>
 
-        <footer>
-            <p>© 2025 RC Caju. Todos os direitos reservados.</p>
-        </footer>
+    <footer>
+        <p>© 2025 RC Caju. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão WhatsApp (ícone fixo) -->
+    <button id="whatsapp" class="whatsapp-btn" data-phone="5585996557224" data-text="Olá! Gostaria de mais informações." aria-label="Abrir WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20.52 3.48C18.08 1.04 14.7 0 11.3 0 5.1 0 0 5.1 0 11.3c0 1.99.52 3.92 1.5 5.63L0 24l6.29-1.65c1.66.9 3.54 1.37 5.39 1.37 6.2 0 11.3-5.1 11.3-11.3 0-3.4-1.04-6.78-3.46-9.22zM11.3 20.8c-1.63 0-3.23-.44-4.62-1.27l-.33-.19-3.73.98.99-3.63-.21-.36A8.66 8.66 0 0 1 2.64 11.3c0-4.82 3.92-8.74 8.66-8.74 2.32 0 4.49.91 6.12 2.54 1.64 1.63 2.55 3.8 2.55 6.12 0 4.82-3.92 8.74-8.66 8.74z" fill="#fff"/>
+            <path d="M17.1 14.2c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.36.22-.66.07-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.12-.61.12-.12.28-.31.42-.46.14-.15.18-.25.28-.4.1-.15.04-.28-.02-.42-.06-.14-.68-1.64-.93-2.25-.24-.59-.49-.51-.68-.52l-.58-.01c-.2 0-.52.07-.79.36-.27.29-1.04 1.01-1.04 2.47 0 1.46 1.07 2.87 1.22 3.07.15.2 2.11 3.35 5.11 4.69 3 .,34 3.38.34 3.68.29.3-.05 1.04-.42 1.19-.82.15-.4.15-.75.11-.82-.04-.07-.15-.1-.33-.17z" fill="#fff"/>
+        </svg>
+    </button>
 
     <!-- Script para abrir WhatsApp Web / App com número e texto pré-definidos -->
     <script>
@@ -57,34 +67,30 @@
                 }
 
                 const encodedText = encodeURIComponent(text);
-                // Tenta abrir no app (para dispositivos móveis) usando wa.me, caso contrário WhatsApp Web
                 const waLink = `https://wa.me/${phone}?text=${encodedText}`;
                 window.open(waLink, '_blank');
             });
         })();
     </script>
+
     <script>
         // Animação de entrada + pulso para o botão WhatsApp
         (function () {
             const btn = document.getElementById('whatsapp');
             if (!btn) return;
 
-            // aplica classe de entrada imediatamente após o carregamento
             window.addEventListener('load', function () {
                 btn.classList.add('whatsapp-enter');
 
-                // após a animação de entrada, inicia alguns ciclos de pulso
                 setTimeout(() => {
                     btn.classList.add('whatsapp-pulse');
-
-                    // remove a classe de pulso após terminar (3 ciclos de animação)
                     const totalPulseDuration = 1400 * 3; // ms
                     setTimeout(() => btn.classList.remove('whatsapp-pulse'), totalPulseDuration + 100);
                 }, 800);
             });
         })();
     </script>
-</body>
 
+</body>
 
 </html>
