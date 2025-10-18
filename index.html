@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>rc caju</title>
-    
 </head>
 
 <body>
@@ -23,6 +22,7 @@
         </ul>
         <div>
             <!-- botão whatsapp permanece como ícone fixo (elemento está no final do body) -->
+        </div>
         </div>
     </nav>
 
@@ -67,12 +67,12 @@
                 }
 
                 const encodedText = encodeURIComponent(text);
+                // Tenta abrir no app (para dispositivos móveis) usando wa.me, caso contrário WhatsApp Web
                 const waLink = `https://wa.me/${phone}?text=${encodedText}`;
                 window.open(waLink, '_blank');
             });
         })();
     </script>
-
     <script>
         // Animação de entrada + pulso para o botão WhatsApp
         (function () {
@@ -81,16 +81,12 @@
 
             window.addEventListener('load', function () {
                 btn.classList.add('whatsapp-enter');
-
                 setTimeout(() => {
                     btn.classList.add('whatsapp-pulse');
-                    const totalPulseDuration = 1400 * 3; // ms
-                    setTimeout(() => btn.classList.remove('whatsapp-pulse'), totalPulseDuration + 100);
                 }, 800);
             });
         })();
     </script>
 
 </body>
-
 </html>
